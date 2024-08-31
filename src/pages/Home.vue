@@ -36,7 +36,7 @@
         </div>
     </section>
 
-    <section class="pb-20 pt-10">
+    <section class="py-20">
         <div class="container">
             <FindDoctorsByCriteria/>
         </div>
@@ -52,7 +52,7 @@ import {useDoctorStore} from "@/store/modues/doctor.js";
 import SimpleCard from "@/components/SimpleCard.vue";
 import HeadingTwo from "@/components/UI/HeadingTwo.vue";
 import TopSearchedSpecialties from "@/components/TopSearchedSpecialties.vue";
-import Test from "@/components/test.vue";
+import Test from "@/components/CollapseMenu.vue";
 import FindDoctorsByCriteria from "@/components/FindDoctorsByCriteria.vue";
 
 const doctorStore = useDoctorStore()

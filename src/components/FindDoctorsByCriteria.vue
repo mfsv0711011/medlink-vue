@@ -2,7 +2,7 @@
     <HeadingTwo class="text-dark text-center sm:text-start">Find doctors and dentists by city</HeadingTwo>
 <!--    <div class="grid auto-rows-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 mt-7 mb-20">-->
     <div class="columns-4 space-y-5 mt-7 mb-20 gap-x-12 gap-y-2">
-        <test v-for="(filter, index) in filters"
+        <CollapseMenu v-for="(filter, index) in filters"
               :key="index"
               v-model="openIndex[index]"
               class="break-inside-avoid-column"
@@ -16,7 +16,7 @@
 
 <script setup>
 import HeadingTwo from "@/components/UI/HeadingTwo.vue";
-import Test from "@/components/test.vue";
+import CollapseMenu from "@/components/CollapseMenu.vue";
 import {onMounted, ref} from "vue";
 
 const itemRefs = ref([]);
