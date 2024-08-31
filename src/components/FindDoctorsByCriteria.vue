@@ -1,8 +1,19 @@
 <template>
     <HeadingTwo class="text-dark text-center sm:text-start">Find doctors and dentists by city</HeadingTwo>
-<!--    <div class="grid auto-rows-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 mt-7 mb-20">-->
-    <div class="columns-4 space-y-5 mt-7 mb-20 gap-x-12 gap-y-2">
+    <div class="columns-1 sm:columns-2 lg:columns-4 space-y-5 mt-7 mb-20 gap-x-12 gap-y-2">
         <CollapseMenu v-for="(filter, index) in filters"
+              :key="index"
+              v-model="openIndex[index]"
+              class="break-inside-avoid-column"
+              :filter="filter"
+              :ref="setItemRef"
+              @update:modelValue="handleToggle(index)"
+              @itemClicked="handleItemClick(index)"
+        />
+    </div>
+    <HeadingTwo class="text-dark text-center sm:text-start">Common visit reasons</HeadingTwo>
+    <div class="columns-1 sm:columns-2 lg:columns-4 space-y-5 mt-7 mb-20 gap-x-12 gap-y-2">
+        <CollapseMenu v-for="(filter, index) in filters2"
               :key="index"
               v-model="openIndex[index]"
               class="break-inside-avoid-column"
@@ -175,6 +186,53 @@ const filters = [
             { value: 'San Jose Therapists', label: 'Purple', checked: false },
             { value: 'San Jose Eye Doctors', label: 'Purple', checked: false },
             { value: 'San Jose ENT Doctors', label: 'Purple', checked: false },
+        ],
+    }
+];
+
+const filters2 = [
+    {
+        name: 'Medical',
+        options: [
+            { value: 'Nexplanon removal', label: 'White', checked: false },
+            { value: 'OB-GYN emergency', label: 'Beige', checked: false },
+            { value: 'IUD removal', label: 'Blue', checked: true },
+            { value: 'IUD insertion', label: 'Brown', checked: false },
+            { value: 'Annual physical', label: 'Green', checked: false },
+            { value: 'Pre-surgery checkup/Pre-surgical clearance', label: 'Purple', checked: false },
+            { value: 'COVID-19 testing', label: 'Purple', checked: false },
+            { value: 'Medical clearance', label: 'Purple', checked: false },
+            { value: 'Online doctors', label: 'Purple', checked: false },
+            { value: 'General physicians', label: 'Purple', checked: false },
+            { value: 'Gastroenterology emergency', label: 'Purple', checked: false },
+            { value: 'ENT emergency visit', label: 'Purple', checked: false },
+            { value: 'Hair loss', label: 'Purple', checked: false },
+            { value: 'Removal of cyst', label: 'Purple', checked: false },
+            { value: 'Online dermatologists', label: 'Purple', checked: false },
+            { value: 'Ozempic / Wegovy (Semaglutide) Weight Loss Drug Consultation', label: 'Purple', checked: false },
+        ],
+    },
+    {
+        name: 'Dental',
+        options: [
+            { value: 'Dental cleaning', label: 'White', checked: false },
+            { value: 'Teeth bonding', label: 'Beige', checked: false },
+            { value: 'Dental implants', label: 'Blue', checked: true },
+        ],
+    },
+    {
+        name: 'Mental Health',
+        options: [
+            { value: 'Anxiety', label: 'White', checked: false },
+            { value: 'Hyperactive disorder (ADD/ADHD)', label: 'Beige', checked: false },
+            { value: 'Online therapy', label: 'Blue', checked: true },
+        ],
+    },
+    {
+        name: 'Vision',
+        options: [
+            { value: 'Annual eye exam', label: 'White', checked: false },
+            { value: 'Eye exam', label: 'Beige', checked: false },
         ],
     }
 ];

@@ -4,6 +4,7 @@
 
 * {
     font-family: Poppins, "Helvetica Neue", sans-serif;
+    scrollbar-gutter: stable;
 }
 
 *::-webkit-scrollbar {

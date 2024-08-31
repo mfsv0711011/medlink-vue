@@ -1,7 +1,7 @@
 <template>
-    <Menu as="div" class="relative inline-block text-left">
+    <Menu as="div" class="relative inline-block text-left border border-darkblue px-4 rounded hover:bg-darkblue text-darkblue hover:text-white">
         <div class="-mx-3">
-            <MenuButton class="hover:bg-gray/25 transition-all px-4 py-2 rounded inline-flex w-full justify-center gap-x-1.5 cursor-pointer bg-transparent text-dark hover:bg-gray-50">
+            <MenuButton class="text-nowrap transition-all px-4 py-1.5 rounded inline-flex w-full justify-center gap-x-1.5 cursor-pointer bg-transparent hover:bg-gray-50">
                 Log in
             </MenuButton>
         </div>
@@ -14,7 +14,7 @@
             leave-from-class="transform opacity-100 scale-100"
             leave-to-class="transform opacity-0 scale-95"
         >
-            <MenuItems class="text-dark p-5 text-xl flex flex-col gap-4 absolute overflow-x-auto scrollbar right-0 z-[100] mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <MenuItems class="text-dark p-3 sm:p-5 sm:text-xl flex flex-col gap-4 absolute overflow-x-auto scrollbar right-0 z-[100] mt-2 w-44 sm:w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <MenuItem>
                     <div class="block ">
                         <p class="px-4 py-2 font-medium">Patients</p>
@@ -35,11 +35,6 @@
 
 <script setup>
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-defineProps({
-    expenses: {
-        type: Array
-    }
-})
 </script>
 
 <style scoped>
